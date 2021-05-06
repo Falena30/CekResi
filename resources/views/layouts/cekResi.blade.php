@@ -23,6 +23,7 @@
     <div class="container mt-4">
         <main class="py-4 row">
             @yield('content')
+            @yield('detail')
         </main>
         <br>
     </div>
