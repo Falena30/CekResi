@@ -32,6 +32,7 @@
           </script>
           </div>
       </form>
+      
   <h3 class="card-header">Respone Toko</h3>
   <div class="card-body">
     <p class="card-text">Lama Waktu : {{$full}}</p>

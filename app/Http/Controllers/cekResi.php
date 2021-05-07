@@ -25,8 +25,8 @@ class cekResi extends Controller
             $dateTime1 = new DateTime($fdate['date']);
             $dateTime2 = new DateTime($ldate['date']);
             $interval = $dateTime1->diff($dateTime2);
+            $fullinterval = $interval->h.' jam'.$interval->i.' menit';
             $hours = $interval->format('%h');
-            $fullinterval = $interval->format('%d Hari %h Jam %m Menit');
             if(count($sortedArr) == 1){
                 $kesan = "Proses pengemasan oleh toko";   
             }else{
