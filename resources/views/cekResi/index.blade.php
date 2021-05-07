@@ -32,6 +32,9 @@
           </script>
           </div>
       </form>
+      @if ($ada == false && $pencarian == true)
+          <p class="text-danger">{{$pesan}}</p> 
+      @endif
       <hr>
       @if ($ada == true) 
       <h3 class="card-header">Respone Toko</h3>
@@ -48,9 +51,10 @@
 @endsection
 
 @section('detail')
-    <div class="col-md-8 col-sm-12 bg-white p-4">
-      <div id="content">
+    
       @if ($ada == true)
+      <div class="col-md-8 col-sm-12 bg-white p-4">
+        <div id="content">
         <table class="table table-sm table-bordered">
           <thead>
               <tr>
@@ -108,9 +112,8 @@
                 @endforeach
             </tbody>
         </table>
-      @else
-        <h1 class="text-center">{{$pesan}}</h1>
+      </div>
+    </div>
       @endif
-    </div>
-    </div>
+    
 @endsection
