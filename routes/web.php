@@ -16,4 +16,5 @@ use App\Http\Controllers\cekResi;
 |
 */
 
-Route::get('/index',[cekResi::class, 'index'])->name('cekResi');
+Route::get('/index',[cekResi::class, 'index'])->name('index');
+Route::post('/index/result',[cekResi::class, 'result'])->name('result');
