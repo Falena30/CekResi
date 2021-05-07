@@ -25,8 +25,6 @@
           <button class="btn btn-primary" type="submit"  aria-expanded="false" id="reloader" aria-controls="collapseExample">
             Cari
           </button>
-
-        
           <script type="text/javascript">
               $("#reloader").click(function(){
                 $("#content").load(" #content");
@@ -34,7 +32,16 @@
           </script>
           </div>
       </form>
+  <h3 class="card-header">Respone Toko</h3>
+  <div class="card-body">
+    <p class="card-text">Lama Waktu : {{$full}}</p>
+    <div style="height:120px !important">
+      <div class="form-group">
+        <button class="btn btn-success">{{$kesan}}</button>
+      </div>
+    </div>
 </div>   
+</div>
 @endsection
 
 @section('detail')

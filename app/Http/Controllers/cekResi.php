@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\CekResiModels;
+use DateTime;
 
 class cekResi extends Controller
 {
     //
+    
     public function index(Request $request)
     {
         $courier = $request->input('courier');
@@ -18,7 +20,25 @@ class cekResi extends Controller
         $ada = true;
         if ($courier != null && $awb != null){    
             $sortedArr = collect($jsondata['data']['history'])->sortBy('date')->all();
-            return view('cekResi.index', ['summarys'=>$jsondata['data']['summary'],'details'=>$jsondata['data']['detail'],'historys'=>$sortedArr,'ada'=>$ada]);
+            $fdate = end($sortedArr);
+            $ldate = prev($sortedArr);
+            $dateTime1 = new DateTime($fdate['date']);
+            $dateTime2 = new DateTime($ldate['date']);
+            $interval = $dateTime1->diff($dateTime2);
+            $hours = $interval->format('%h');
+            $fullinterval = $interval->format('%d Hari %h Jam %m Menit');
+            if(count($sortedArr) == 1){
+                $kesan = "Proses pengemasan oleh toko";   
+            }else{
+                if ($hours <= 4){
+                    $kesan = "sangat baik";
+                }elseif($hours > 4 && $hours <= 8){
+                    $kesan = "Baik";
+                }else{
+                    $kesan = "Cukup";
+                }
+            }
+            return view('cekResi.index', ['summarys'=>$jsondata['data']['summary'],'details'=>$jsondata['data']['detail'],'historys'=>$sortedArr,'ada'=>$ada,'kesan' => $kesan,'full'=>$fullinterval]);
         }else{
             $ada = false;
             return view('cekResi.index',['ada'=>$ada]);

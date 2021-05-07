@@ -24,6 +24,7 @@
         <main class="py-4 row">
             @yield('content')
             @yield('detail')
+            @yield('Respon')
         </main>
         <br>
     </div>
