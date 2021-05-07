@@ -32,16 +32,17 @@
           </script>
           </div>
       </form>
-      
-  <h3 class="card-header">Respone Toko</h3>
-  <div class="card-body">
-    <p class="card-text">Lama Waktu : {{$full}}</p>
-    <div style="height:120px !important">
-      <div class="form-group">
-        <button class="btn btn-success">{{$kesan}}</button>
-      </div>
-    </div>
-</div>   
+      @if ($ada == true) 
+      <h3 class="card-header">Respone Toko</h3>
+      <div class="card-body">
+        <p class="card-text">Lama Waktu : {{$full}}</p>
+        <div style="height:120px !important">
+          <div class="form-group">
+            <button class="btn btn-success">{{$kesan}}</button>
+          </div>
+        </div>
+       </div> 
+      @endif  
 </div>
 @endsection
 
@@ -106,7 +107,7 @@
             </tbody>
         </table>
       @else
-      <h1>Disini Tidak ada apa - apa</h1>
+        <h1 class="text-center">{{$pesan}}</h1>
       @endif
     </div>
     </div>

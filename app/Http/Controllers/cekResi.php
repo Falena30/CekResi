@@ -18,7 +18,7 @@ class cekResi extends Controller
         $jsondata = CekResiModels::getApiCekResi($courier,$awb);
 
         $ada = true;
-        if ($courier != null && $awb != null){    
+        if ($jsondata['status'] == 200){    
             $sortedArr = collect($jsondata['data']['history'])->sortBy('date')->all();
             $fdate = end($sortedArr);
             $ldate = prev($sortedArr);
@@ -40,8 +40,9 @@ class cekResi extends Controller
             }
             return view('cekResi.index', ['summarys'=>$jsondata['data']['summary'],'details'=>$jsondata['data']['detail'],'historys'=>$sortedArr,'ada'=>$ada,'kesan' => $kesan,'full'=>$fullinterval]);
         }else{
+            $pesan = "Nomer Resi Tidak Ditemukan";
             $ada = false;
-            return view('cekResi.index',['ada'=>$ada]);
+            return view('cekResi.index',['ada'=>$ada,'pesan'=>$pesan]);
         }
     }
 }
