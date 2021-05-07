@@ -32,6 +32,7 @@
           </script>
           </div>
       </form>
+      <hr>
       @if ($ada == true) 
       <h3 class="card-header">Respone Toko</h3>
       <div class="card-body">
@@ -50,14 +51,14 @@
     <div class="col-md-8 col-sm-12 bg-white p-4">
       <div id="content">
       @if ($ada == true)
-        <table class="table table-sm">
+        <table class="table table-sm table-bordered">
           <thead>
               <tr>
-                <th class="text-center" colspan="4">Delivered to {{$details['receiver']}}, {{$details['destination']}}, {{$historys[0]['date']}}</th>
+                <th class="text-center bg-success text-light" colspan="4">Delivered to {{$details['receiver']}}, {{$details['destination']}}, {{$historys[0]['date']}}</th>
               </tr>
           </thead>
           <tbody>
-              <tr>
+              <tr class="text-center bg-primary text-light" >
                   <th>Nomer Resi</th>
                   <th>Tanggal Pengiriman</th>
                   <th>Pengirim</th>
@@ -87,14 +88,15 @@
               </tr>
           </tbody>
         </table>
-        <table class="table table-sm">
+        <hr>
+        <table class="table table-sm table-bordered">
             <thead>
-                <tr>
+                <tr class="text-center bg-success text-light">
                   <th colspan="2">Detail Pengiriman</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="bg-primary text-light text-center ">
                   <th>Tanggal/Waktu</th>
                   <th>Deskribsi</th>
                 </tr>
