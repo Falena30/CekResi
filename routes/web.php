@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\novel;
 use App\Http\Controllers\cekResi;
+use App\Http\Controllers\apiCoronaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,4 @@ use App\Http\Controllers\cekResi;
 */
 
 Route::get('/index',[cekResi::class, 'index'])->name('index');
-Route::post('/index/result',[cekResi::class, 'result'])->name('result');
+Route::get('/api/corona',[apiCoronaController::class, 'index'])->name('apiCorona');
