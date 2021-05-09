@@ -19,3 +19,4 @@ use App\Http\Controllers\apiCoronaController;
 
 Route::get('/index',[cekResi::class, 'index'])->name('index');
 Route::get('/api/corona',[apiCoronaController::class, 'index'])->name('apiCorona');
+Route::get('/api/corona/chart',[apiCoronaController::class, 'chart'])->name('apiCoronaChart');
